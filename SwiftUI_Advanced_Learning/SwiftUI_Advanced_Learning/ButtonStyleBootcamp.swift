@@ -34,16 +34,9 @@ struct ButtonStyleBootcamp: View {
             print("Oi")
         } label: {
             Text("Click Me")
-                .font(.headline)
-                .foregroundColor(.white)
-                .frame(height: 55)
-                .frame(maxWidth: .infinity)
-                .background(Color.blue)
-                .cornerRadius(10)
-                .shadow(color: Color.blue.opacity(0.3), radius: 10, x: 0.0, y: 10)
+                .withDefaultButtonFormatting()
         }
         .withPressableStyle(scaledAmount: 0.5)
-        //.buttonStyle(PressableStyle())
         .padding(40)
     }
 }
