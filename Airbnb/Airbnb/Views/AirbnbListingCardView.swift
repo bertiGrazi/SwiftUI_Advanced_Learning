@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct AirbnbListingCardView: View {
+    let model: AirbnbListings
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-struct AirbnbListingCardView_Previews: PreviewProvider {
-    static var previews: some View {
-        AirbnbListingCardView()
+        HStack {
+            AsyncImage(url: URL(string: model.thumbnail_url ?? ""))
+            
+            Text(model.name ?? "Listings")
+                .font(.title)
+                .bold()
+        }
     }
 }

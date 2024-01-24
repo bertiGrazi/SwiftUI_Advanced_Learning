@@ -13,7 +13,9 @@ struct AirbnbListingsView: View {
     var body: some View {
         NavigationView {
             List(viewModel.listening) { listing in
-                Text(listing.name ?? "--")
+                NavigationLink(destination: Text("Hello")) {
+                    AirbnbListingCardView(model: listing)
+                }
                 
             }
         }
