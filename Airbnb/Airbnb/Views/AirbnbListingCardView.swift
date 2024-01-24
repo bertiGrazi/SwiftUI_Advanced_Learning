@@ -13,10 +13,22 @@ struct AirbnbListingCardView: View {
     var body: some View {
         HStack {
             AsyncImage(url: URL(string: model.thumbnail_url ?? ""))
+                .frame(width: 100, height: 100)
+                .scaledToFit()
+                .aspectRatio(contentMode: .fill)
+                .clipped()
             
-            Text(model.name ?? "Listings")
-                .font(.title)
-                .bold()
+            VStack {
+                Text(model.name ?? "Listings")
+                    .font(.title3)
+                    .bold()
+                
+                Text(model.description ?? "Listings")
+                    .lineLimit(3)
+                    .foregroundColor(Color(.secondaryLabel))
+                    .font(.body)
+            }
+                
         }
     }
 }
