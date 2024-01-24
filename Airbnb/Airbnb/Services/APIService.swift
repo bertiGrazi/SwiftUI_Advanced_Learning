@@ -19,8 +19,17 @@ final class APIService {
             return
         }
         let request = URLRequest(url: url)
-        let task = URLSession.shared.dataTask(with: request) { data, _, error in
-            
+        let task = URLSession.shared.dataTask(with: request) {data, _, error in
+            guard let data = data, error == nil else {
+                completion(.failure(error ?? NSError(domain: "YourDomain", code: 0, userInfo: nil)))
+                return
+            }
+            do {
+                let response = try JSONDecoder().decode(AirbnbListingsResponse.self, from: data)
+                completion(.success(response.results))
+            } catch {
+                completion(.failure(error))
+            }
         }
         task.resume()
     }
