@@ -12,7 +12,10 @@ struct AirbnbListingsView: View {
     
     var body: some View {
         NavigationView {
-            Text("Loading")
+            List(viewModel.listening) { listing in
+                Text(listing.name ?? "--")
+                
+            }
         }
         .onAppear {
             viewModel.fetchListings()
