@@ -27,41 +27,33 @@ class DownloadWithEscapingViewModel: ObservableObject {
     }
     
     func getPost() {
-        guard let url = URL(string: "https://jsonplaceholder.typicode.com/posts/2") else { return }
+        guard let url = URL(string: "https://jsonplaceholder.typicode.com/posts") else { return }
         
+        downloadData(fromURL: url) { (returnData: Data?) in
+            if let data = returnData {
+                guard let newPosts = try? JSONDecoder().decode([PostModel].self, from: data) else { return }
+                DispatchQueue.main.async { [weak self] in
+                    self?.posts = newPosts
+                }
+            }
+        }
+    }
+
+    
+    func downloadData(fromURL url: URL, completionHandler: @escaping (_ data: Data?) -> Void) {
         URLSession.shared.dataTask(with: url) { data, response, error in
-            guard let data = data else {
-                print("No data.")
+            guard
+                let data = data,
+                error == nil,
+                let response = response as? HTTPURLResponse,
+                response.statusCode >= 200 && response.statusCode < 300
+            else {
+                print("Error downloading data..")
+                completionHandler(nil)
                 return
             }
             
-            guard error == nil else {
-                print("Error: \(String(describing: error))")
-                return
-            }
-            
-            guard let response = response as? HTTPURLResponse else {
-                print("Invalid response")
-                return
-                
-            }
-            
-            guard response.statusCode >= 200 && response.statusCode < 300 else {
-                print("Status code shoul be 2xx, but is \(response.statusCode)")
-                return
-            }
-            
-            print("SUCCESSFULLY DOWNLOADED DATA!")
-            print(data)
-            
-            let jsonString = String(data: data, encoding: .utf8)
-            print(jsonString)
-            
-            guard let newPost = try? JSONDecoder().decode(PostModel.self, from: data) else { return }
-            DispatchQueue.main.async { [weak self] in
-                self?.posts.append(newPost)
-            }
-            
+            completionHandler(data)
         }.resume()
     }
 }
@@ -79,6 +71,7 @@ struct DownloadWithEscapingBootcamp: View {
                     Text(post.body)
                         .foregroundStyle(Color.gray)
                 }
+                .frame(maxWidth: .infinity)
                 
             }
         }
