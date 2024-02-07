@@ -11,6 +11,26 @@ struct NavigationViewBootcamp: View {
     var body: some View {
         NavigationView {
             ScrollView {
+                
+                NavigationLink("Hello, amigo!",
+                               destination: (MyOtherScreen())
+                )
+                
+                NavigationLink(destination: MyOtherScreen()) {
+                    Text("Botão da Grazi")
+                        .padding()
+                        .foregroundColor(.white)
+                        .background(Color.blue)
+                        .cornerRadius(8)
+                        .padding(10)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 8)
+                                .stroke(Color.blue, lineWidth: 2)
+                        )
+                }
+
+
+                
                 Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
                 
                 Text("Hello, World!")
@@ -22,8 +42,19 @@ struct NavigationViewBootcamp: View {
                 Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
             }
             .navigationTitle("All Inboxes")
-            .navigationBarTitleDisplayMode(.automatic)
-            .navigationBarHidden(true)
+            //.navigationBarTitleDisplayMode(.automatic)
+            //.navigationBarHidden(true)
+        }
+    }
+}
+
+struct MyOtherScreen: View {
+    var body: some View {
+        ZStack {
+            Color.green.edgesIgnoringSafeArea(.all)
+                .navigationTitle("Green Screen")
+            
+            NavigationLink("Click here", destination: Text("VAMOSSSSS"))
         }
     }
 }
