@@ -28,6 +28,8 @@ final class APIService {
                 let response = try JSONDecoder().decode(AirbnbListingsResponse.self, from: data)
                 completion(.success(response.results))
             } catch {
+                let json = try? JSONSerialization.jsonObject(with: data)
+                print(String(describing: json))
                 completion(.failure(error))
             }
         }

@@ -14,11 +14,13 @@ final class AirbnbListeningViewViewModel: ObservableObject {
     
     public func fetchListings() {
         service.getListing { [weak self] result in
-            switch result {
-            case .success(let models):
-                self?.listening = models
-            case .failure:
-                break
+            DispatchQueue.main.async { 
+                switch result {
+                case .success(let models):
+                    self?.listening = models
+                case .failure:
+                    break
+                }
             }
         }
     }

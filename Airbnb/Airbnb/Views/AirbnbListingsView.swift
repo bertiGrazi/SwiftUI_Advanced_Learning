@@ -12,10 +12,12 @@ struct AirbnbListingsView: View {
     
     var body: some View {
         NavigationView {
-            VStack {
+            List(viewModel.listening) { listing in
+                NavigationLink(destination: Text("Hello"), label: {
+                    AirbnbListingCardView(model: listing)
+                })
                 
             }
-            .navigationTitle("Airbnb")
         }
         .onAppear {
             viewModel.fetchListings()
