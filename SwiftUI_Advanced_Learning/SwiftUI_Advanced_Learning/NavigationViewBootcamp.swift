@@ -44,6 +44,15 @@ struct NavigationViewBootcamp: View {
             .navigationTitle("All Inboxes")
             //.navigationBarTitleDisplayMode(.automatic)
             //.navigationBarHidden(true)
+            .navigationBarItems(leading:
+            HStack {
+                Image(systemName: "person.fill")
+                Image(systemName: "flame.fill")
+            }, trailing: NavigationLink(destination: MyOtherScreen(), label: {
+                Image(systemName: "gear")
+            })
+                .accentColor(.red)
+            )
         }
     }
 }
@@ -64,8 +73,6 @@ struct MyOtherScreen: View {
                 
                 NavigationLink("Click here", destination: Text("VAMOSSSSS"))
             }
-            
-           
         }
     }
 }
