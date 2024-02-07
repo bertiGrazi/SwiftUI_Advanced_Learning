@@ -13,6 +13,7 @@
 		B12FB3852B6142C0002A5545 /* ViewModifiersSwiftUIBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12FB3842B6142C0002A5545 /* ViewModifiersSwiftUIBootcamp.swift */; };
 		B175799A2B614EBC004C770E /* ButtonStyleBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17579992B614EBC004C770E /* ButtonStyleBootcamp.swift */; };
 		B18C68092B73A4CE005E3A59 /* CodableBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18C68082B73A4CE005E3A59 /* CodableBootcamp.swift */; };
+		B18C680C2B73B28D005E3A59 /* DownloadWithEscapingBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18C680B2B73B28D005E3A59 /* DownloadWithEscapingBootcamp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		B12FB3842B6142C0002A5545 /* ViewModifiersSwiftUIBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifiersSwiftUIBootcamp.swift; sourceTree = "<group>"; };
 		B17579992B614EBC004C770E /* ButtonStyleBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyleBootcamp.swift; sourceTree = "<group>"; };
 		B18C68082B73A4CE005E3A59 /* CodableBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableBootcamp.swift; sourceTree = "<group>"; };
+		B18C680B2B73B28D005E3A59 /* DownloadWithEscapingBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadWithEscapingBootcamp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				B12FB3842B6142C0002A5545 /* ViewModifiersSwiftUIBootcamp.swift */,
 				B17579992B614EBC004C770E /* ButtonStyleBootcamp.swift */,
 				B18C68082B73A4CE005E3A59 /* CodableBootcamp.swift */,
+				B18C680B2B73B28D005E3A59 /* DownloadWithEscapingBootcamp.swift */,
 			);
 			path = SwiftUI_Advanced_Learning;
 			sourceTree = "<group>";
@@ -146,6 +149,7 @@
 				B18C68092B73A4CE005E3A59 /* CodableBootcamp.swift in Sources */,
 				B175799A2B614EBC004C770E /* ButtonStyleBootcamp.swift in Sources */,
 				B12FB3852B6142C0002A5545 /* ViewModifiersSwiftUIBootcamp.swift in Sources */,
+				B18C680C2B73B28D005E3A59 /* DownloadWithEscapingBootcamp.swift in Sources */,
 				B12FB3772B614213002A5545 /* SwiftUI_Advanced_LearningApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
