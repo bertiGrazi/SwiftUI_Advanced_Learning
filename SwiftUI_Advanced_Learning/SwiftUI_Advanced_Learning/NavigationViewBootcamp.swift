@@ -49,12 +49,23 @@ struct NavigationViewBootcamp: View {
 }
 
 struct MyOtherScreen: View {
+    @Environment(\.presentationMode) var presentationMode
+    
     var body: some View {
         ZStack {
             Color.green.edgesIgnoringSafeArea(.all)
                 .navigationTitle("Green Screen")
+                .navigationBarHidden(true)
             
-            NavigationLink("Click here", destination: Text("VAMOSSSSS"))
+            VStack {
+                Button("Back Button") {
+                    presentationMode.wrappedValue.dismiss()
+                }
+                
+                NavigationLink("Click here", destination: Text("VAMOSSSSS"))
+            }
+            
+           
         }
     }
 }
