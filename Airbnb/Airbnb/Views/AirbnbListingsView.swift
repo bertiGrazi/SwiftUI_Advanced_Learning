@@ -12,11 +12,16 @@ struct AirbnbListingsView: View {
     
     var body: some View {
         NavigationView {
-            List(viewModel.listening) { listing in
-                NavigationLink(destination: Text("Hello"), label: {
-                    AirbnbListingCardView(model: listing)
-                })
-                
+            if viewModel.listening.isEmpty {
+                ProgressView()
+                    .progressViewStyle(CircularProgressViewStyle())
+            } else {
+                List(viewModel.listening) { listing in
+                    NavigationLink(destination: AirbnbDetailsView(model: listing), label: {
+                        AirbnbListingCardView(model: listing)
+                    })
+                }
+                .navigationTitle("Airbnb")
             }
         }
         .onAppear {
