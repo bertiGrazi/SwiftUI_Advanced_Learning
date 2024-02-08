@@ -17,9 +17,21 @@ class LocalFileManager {
             return
         }
         
-        //let directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        let directory2 = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)
-        //let directory3 = FileManager.default.temporaryDirectory
+        guard
+            let path = FileManager
+                .default
+                .urls(for: .cachesDirectory, in: .userDomainMask)
+                .first?
+                .appendingPathComponent("\(name).jpg") else {
+            return
+        }
+                
+        do {
+            try data.write(to: path)
+            print("Sucess saving")
+        } catch let error {
+            print("Error saving \(error)")
+        }
         
     }
 }
